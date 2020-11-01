@@ -6,6 +6,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 # we use the chrome browser for the twitter webscraping
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
+
 
 import os # used to automatically create directories to store the 
 import csv  # used to ouput the data into a csv file (that we can analyze)
@@ -15,15 +17,19 @@ from helpers import *
 class TwitterScraper:
 
 
-    def __init__(self, username, password, path):
+    def __init__(self, username, password, path, headless=False):
+        if headless == True:
+            chrome_options = Options()  
+            chrome_options.add_argument("--headless")
+            self.driver = Chrome(path, options=chrome_options)
+        else: self.driver = Chrome(path)
+
         self.username = username
         self.password = password
-        self.path = path
-        self.driver = Chrome(self.path)
         self.data = {}
 
     def __str__(self):
-        return f'TwitteeScraper object of user: "{self.username}"'
+        return f'TwitterScraper object of user: "{self.username}"'
 
     def __repr(self):
         return f'<twitter scraper object: ({self.username}))>' # add getpassword 
@@ -33,16 +39,6 @@ class TwitterScraper:
         Returns the Driver used for the Scraping
         """
         return self.driver
-
-    def set_driver(self, driver):
-        if driver == 'chrome':
-            self.driver = Chrome(self.path)
-        elif driver == "edge":
-            print('Sorry, this feature hasnt yet been implemented.')
-        elif driver == "firefox":
-            print('Sorry, this feature hasnt yet been implemented.')
-        else:
-            print('Sorry, I dont know this browser.')
 
     def get_data(self):
         if self.data == {}:
@@ -72,7 +68,7 @@ class TwitterScraper:
         
         try: search_input.clear()
         except: None
-        
+
         search_input.send_keys(searchterm)
         search_input.send_keys(Keys.RETURN)
         sleep(2)
@@ -114,7 +110,7 @@ class TwitterScraper:
                 writer = csv.writer(outfile)
                 writer.writerow(header)
                 writer.writerows(self.data[search]) 
-            print(f'Sucessfully saved "./scrape_results/scraped_{search}"')
+            print(f'Sucessfully saved "scraped_{search}"')
 
     def close_driver(self):
         self.driver.close()
