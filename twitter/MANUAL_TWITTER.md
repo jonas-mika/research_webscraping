@@ -1,18 +1,14 @@
-# README: Twitter Scraper
+# Manual: Twitter Scraper
 
 ## Description
 
-This Repository was initially created to automate the webscraping process for the exam paper in the course DSiRBS in the first year of the Data Science course.
-The Repository currently only contains code to scrape twitter data, but should be expanded to also scrape the web, instagram and other platforms.
+The 'Twitter' Directory contains the Scipts used for scraping Twitter Data, the results from the srape and the quantitative analysis performed on it. 
 
 ## TODO
 
 - [ ] Further implement Classes in Python Script
 - [ ] Separate the twitter_scraper.py to make it more readable (maybe create a separate folder containing all those files)
-- [ ] Implement Web Scraper
-- [ ] Implement Instagram Scraper (might not be useful though, as it is more picture based)
-- [ ] Think of other platforms to scrape
-- [ ] Add Requirement of Path and Installation of Driver from Selenium
+- [ ] Add Requirements (Path and Installation of Driver from Selenium) in Manual Markdown
 
 ## To Run
 ### Libraries needed
