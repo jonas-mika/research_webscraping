@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import Chrome
 
 
-# helper functions 
+# helper functions
 def get_tweet_data(card):
     """
     Extract data from tweet card using xpath searches for each important element of the tweet
