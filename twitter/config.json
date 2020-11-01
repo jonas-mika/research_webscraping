@@ -1,0 +1,15 @@
+{
+    "PATH": "/Users/jonassenghaas/programming/python/scrapers/webdrivers/chromedriver",
+    "SEARCHES": 
+        [
+            "corona notetaking",
+            "home notetaking",
+            "remote notetaking",
+            "corona notetaking",
+            "covid notetaking"
+        ],
+    "CREDENTIALS": {
+        "USER": ["scraper_python", "spam@jonassenghaas.de"],
+        "PASSWORD": "datascience"
+    }
+}
