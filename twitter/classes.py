@@ -1,5 +1,6 @@
 # imports 
 from time import sleep, time
+import re
 
 # selenium library to navigate browser and scrape twitter
 from selenium.webdriver.common.keys import Keys
@@ -80,24 +81,44 @@ class TwitterScraper:
         self.data[searchterm] = []
         tweet_ids = set() # we use this to make sure that our dataset consist of unique tweets
 
-        timeout = time() + 10
+        timeout = time() + 60
 
         while True:
             page_cards = self.driver.find_elements_by_xpath('//div[@data-testid="tweet"]')
+            print(len(page_cards))
+
             for card in page_cards[-15:]:
                 tweet = get_tweet_data(card)
+                print(tweet[2])
+
+                if bool(re.match('^2020', tweet[2])) is False:
+                    print('Condition met')
+                    break 
+
                 if tweet:
+                    print('Condition not met')
                     tweet_id = ''.join(tweet)
                     if tweet_id not in tweet_ids:
                         tweet_ids.add(tweet_id)
                         self.data[searchterm].append(tweet)
+                # if re.match('^2019', tweet[2]):
+                #    break
                     
+
+            if bool(re.match('^2020', tweet[2])) == False:
+                break
+
+            if time() > timeout:
+                 print('The Scrape ended at maximum time: 60s')
+                 break
+
+        
             self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
             sleep(3)
 
-            if time() > timeout:
-                print('The Scrape ended after 10 seconds')
-                break
+            # if time() > timeout:
+            #     print('The Scrape ended after 10 seconds')
+            #     break
     
     def save_data(self):
         try:
