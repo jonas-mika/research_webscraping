@@ -11,5 +11,5 @@
     "CREDENTIALS": {
         "USER": ["scraper_python", "spam@jonassenghaas.de"],
         "PASSWORD": "datascience"
-    }
+    }  
 }
