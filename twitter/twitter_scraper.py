@@ -28,9 +28,8 @@ def main():
         start = timer()
         twitter_scraper.scrape(searchterm)
         stop = timer()
-        print(f'Finished Scrape in {round(stop-start, 2)}')
+        print(f'Finished Scraping every tweet up to 01/01/2020 in {round((stop-start)/60, 2)}min')
         print('-------------------')
-        break
     print(f'Scraped {len(twitter_scraper.get_data())} Searchterms')
     print(f'Saving data...')
     twitter_scraper.save_data()
