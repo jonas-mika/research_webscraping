@@ -6,11 +6,12 @@ The 'Twitter' Directory contains the Scipts used for scraping Twitter Data, the 
 
 ## TODO
 
-- [ ] Change Script to run until all tweets from 2020 (or from start of lockdown are scraped)
+- [x] Change Script to run until all tweets from 2020 (or from start of lockdown are scraped)
 - [ ] Add Requirements (Path and Installation of Driver from Selenium) in Manual Markdown
 - [x] Format Output during Scraping
-- [ ] Make Chromedriver run in Background (maybe even as a class attribute)
+- [x] Make Chromedriver run in Background (maybe even as a class attribute)
 - [ ] Add Docstrings
+- [ ] Change save_data() method such that it needs to be saved after every iteration -> make it less viable to breaking of code through unexpected errors
 
 ## To Run
 ### Requirements
