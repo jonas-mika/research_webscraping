@@ -237,8 +237,8 @@ def methods():
     plt.savefig("methods.pdf")
 
 def time():
-    categories = ["Before", "During", "After", "Other"]
-    counts = [34, 63, 13, 11]
+    categories = ["Before", "During", "After"]
+    counts = [47.23, 87.5, 18.05]
 
     fig = plt.figure(figsize=(4,3))
 
@@ -246,8 +246,8 @@ def time():
 
     axes.bar(categories, counts, color="blue", alpha=0.4)
     axes.set_title("Distribution of Time of Notetaking", fontweight='bold')
-    # axes.set_xlabel("ITU Courses", style='italic')
-    # axes.set_ylabel("Amount")
+    #axes.set_xlabel("Time of notetaking relative to lecture", style='italic')
+    axes.set_ylabel("(%)")
     
     axes.set_xticklabels(categories, Rotation=30, fontsize=8)
 
@@ -255,7 +255,7 @@ def time():
 
 def place():
     categories = ["ITU", "Home", "Public", "Other"]
-    counts = [51, 55, 6, 3]
+    counts = [70.83, 76.38, 8.34, 4.16]
 
     fig = plt.figure(figsize=(4,3))
 
@@ -264,7 +264,7 @@ def place():
     axes.bar(categories, counts, color="blue", alpha=0.4)
     axes.set_title("Distribution of Place of Notetaking", fontweight='bold')
     # axes.set_xlabel("ITU Courses", style='italic')
-    # axes.set_ylabel("Amount")
+    axes.set_ylabel("(%)")
     
     axes.set_xticklabels(categories, Rotation=30, fontsize=8)
 
@@ -320,13 +320,13 @@ def main():
     # quality()
     # methods()
     # time()
-    # place()
+    place()
     # devices()
     # app()
     print('Done')
 
 # explore()
-explore()
+main()
 
 
 
